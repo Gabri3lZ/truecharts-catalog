@@ -257,7 +257,6 @@ questions:
       default: false
       show_subquestions_if: true
       subquestions:
-        default: false
         - variable: scaleExternalInterface
           description: Add External Interfaces
           label: Add external Interfaces
