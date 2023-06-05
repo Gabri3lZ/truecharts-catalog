@@ -1,0 +1,17 @@
+node-exporter:
+  persistence:
+    host:
+      enabled: true
+      hostPath: /
+      mountPath: /host
+      readOnly: false
+    proc:
+      enabled: true
+      hostPath: /proc
+      mountPath: /host/proc
+      readOnly: false
+    sys:
+      enabled: true
+      hostPath: /sys
+      mountPath: /host/sys
+      readOnly: false
