@@ -14,9 +14,10 @@ node-exporter:
   service:
     main:
       ports:
-        main:
+        metrics:
           port: 9100
-          protocol: http
+          targetPort: metrics
+          protocol: TCP
   workload:
     main:
       podSpec:
