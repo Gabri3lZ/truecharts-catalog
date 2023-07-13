@@ -1,0 +1,42 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/adminer
+  tag: latest@sha256:162fee36eb5fe132517ff63de4ae864a7f5e914071ee0da78bcd38c345b1506f
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            ADMINER_DESIGN: ""
+            ADMINER_PLUGINS: ""
+
+service:
+  main:
+    ports:
+      main:
+        port: 18080
+        protocol: http
+        targetPort: 8080
+
+portal:
+  open:
+    enabled: true

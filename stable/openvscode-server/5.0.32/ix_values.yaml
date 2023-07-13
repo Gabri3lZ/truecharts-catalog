@@ -1,0 +1,29 @@
+image:
+  repository: tccr.io/truecharts/openvscode-server
+  pullPolicy: IfNotPresent
+  tag: v1.79.2@sha256:dce0172e1ae31f6ce302567368151c2a0239c47e58c55d095d2e9666280abd0c
+# secretEnv:
+#   CONNECTION_TOKEN: "somerandomstring"
+#   CONNECTION_SECRET: ""
+#   SUDO_PASSWORD: ""
+service:
+  main:
+    ports:
+      main:
+        targetPort: 3000
+        port: 10135
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0

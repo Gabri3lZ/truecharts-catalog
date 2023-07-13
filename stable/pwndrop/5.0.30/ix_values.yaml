@@ -1,0 +1,25 @@
+image:
+  repository: tccr.io/truecharts/pwndrop
+  pullPolicy: IfNotPresent
+  tag: v1.0.1@sha256:38f705cfdc1b055fe4371f5638ac74003058646a7b8688118c53fd2ca620a35c
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8080
+        port: 10149
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
